@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:id="@+id/tvusuario"
+        android:layout_marginTop="100dp"
+        android:textSize="30dp"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:layout_width="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textSize="35dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="Menú Principal" />
+
+    <Button
+        android:id="@+id/btcredito"
+        android:layout_marginTop="20dp"
+        android:layout_width="250dp"
+        android:textSize="30dp"
+        android:onClick="Creditos"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Crédito" />
+
+    <Button
+        android:id="@+id/btcliente"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:onClick="Usarios"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Cliente" />
+
+    <Button
+        android:id="@+id/btsalir"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:onClick="Salir"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Salir" />
+
+
+</LinearLayout>

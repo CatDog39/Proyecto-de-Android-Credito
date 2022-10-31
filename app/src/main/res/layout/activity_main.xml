@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:layout_height="wrap_content"
+        android:text="Ingreso" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_height="wrap_content"
+        android:text="Login usuario" />
+
+    <EditText
+        android:id="@+id/etusuario"
+        android:layout_width="300dp"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Por ejemplo PeterP" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Clave" />
+
+    <EditText
+        android:id="@+id/etclave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:hint="Por ejemplo Sp1d3rm4n" />
+
+    <Button
+        android:id="@+id/btingresar"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Ingresar"
+        android:textSize="35dp"
+        android:text="Ingresar" />
+
+    <Button
+        android:id="@+id/btlimpiar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="35dp"
+        android:onClick="Limpiar"
+        android:layout_marginTop="15dp"
+        android:text="Limpiar" />
+</LinearLayout>
