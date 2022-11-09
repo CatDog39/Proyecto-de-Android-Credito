@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="150dp"
+    android:layout_marginTop="100dp"
     android:layout_height="match_parent"
     tools:context=".CreditoActivity">
 
@@ -168,6 +168,21 @@
             android:layout_weight="1"
             android:textSize="25dp"
             android:text="Regresar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btcancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Cancelar" />
+
     </LinearLayout>
 
 </LinearLayout>

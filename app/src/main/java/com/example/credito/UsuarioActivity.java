@@ -1,8 +1,8 @@
 package com.example.credito;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -20,7 +20,8 @@ public class UsuarioActivity extends AppCompatActivity {
     ClsOpenHelper admin=new ClsOpenHelper(this,"Banco.bd",null,1);
 
     String identificacion,nombre,profesion,empresa,salario,extras,gastos;
-    Long resp;
+    long resp;
+    byte sw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class UsuarioActivity extends AppCompatActivity {
         jetextras=findViewById(R.id.etextras);
         jetgastos=findViewById(R.id.etgastos);
         jcbactivo=findViewById(R.id.cbactivo);
+        sw=0;
     }
 
     public void Guardar(View view){
@@ -60,7 +62,12 @@ public class UsuarioActivity extends AppCompatActivity {
             registro.put("salario",Integer.parseInt(salario));
             registro.put("ingreso_extra",Integer.parseInt(extras));
             registro.put("gastos",gastos);
-            resp=fila.insert("TblCliente",null,registro);
+            if (sw == 0)
+                resp=fila.insert("TblCliente",null,registro);
+            else {
+                resp=fila.update("TblCliente",registro,"identificacion='" + identificacion + "'",null);
+                sw=0;
+            }
             if (resp == 0){
                 Toast.makeText(this, "Error guardando registro", Toast.LENGTH_SHORT).show();
             }
@@ -72,7 +79,7 @@ public class UsuarioActivity extends AppCompatActivity {
         }
     }
 
-    public void Consultar(View view){
+    public void Buscar(View view){
         identificacion=jetidentificacion.getText().toString();
         if (identificacion.isEmpty()){
             Toast.makeText(this, "Identificacion es requerida para la consulta", Toast.LENGTH_SHORT).show();
@@ -82,6 +89,7 @@ public class UsuarioActivity extends AppCompatActivity {
             SQLiteDatabase fila=admin.getReadableDatabase();
             Cursor dato=fila.rawQuery("select * from TblCliente where identificacion='" +identificacion+ "'",null);
             if (dato.moveToNext()){
+                sw=1;
                 jetnombre.setText(dato.getString(1));
                 jetprofesion.setText(dato.getString(2));
                 jetempresa.setText(dato.getString(3));
@@ -99,6 +107,46 @@ public class UsuarioActivity extends AppCompatActivity {
         }
     }
 
+    public void Anular(View view){
+        if (sw == 0){
+            Toast.makeText(this, "Debe primero consultar para anular", Toast.LENGTH_SHORT).show();
+            jetidentificacion.requestFocus();
+        }
+        else{
+            identificacion=jetidentificacion.getText().toString();
+            if (identificacion.isEmpty()){
+                Toast.makeText(this, "La identificacion es requerida", Toast.LENGTH_SHORT).show();
+                jetidentificacion.requestFocus();
+            }
+            else {
+                sw=0;
+                SQLiteDatabase fila=admin.getWritableDatabase();
+                ContentValues registro=new ContentValues();
+                registro.put("activo","no");
+                resp=fila.update("TblCliente",registro,"identificacion='" + identificacion + "'",null);
+                if (resp == 0){
+                    Toast.makeText(this, "Error anulando registro", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, "Registro anulado", Toast.LENGTH_SHORT).show();
+                    Limpiar_campos();
+                }
+                fila.close();
+            }
+        }
+    }
+
+    public void Regresar(View view){
+        Intent intmenu=new Intent(this,MainActivity.class);
+        startActivity(intmenu);
+    }
+
+    public void Cancelar(View view){
+        Limpiar_campos();
+    }
+
+
+
     private void Limpiar_campos(){
         jetidentificacion.setText("");
         jetgastos.setText("");
@@ -109,6 +157,7 @@ public class UsuarioActivity extends AppCompatActivity {
         jetnombre.setText("");
         jcbactivo.setChecked(false);
         jetidentificacion.requestFocus();
+        sw=0;
     }
 
 }
