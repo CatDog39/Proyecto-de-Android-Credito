@@ -112,17 +112,18 @@
 
         <TextView
             android:id="@+id/tvvalor_prestamo"
-            android:layout_width="204dp"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
             android:layout_weight="1"
-            android:text="Valor Prestamo" />
+            android:text="Valor Prestamo"
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/btejecutar"
             android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:textSize="25dp"
+            android:onClick="Ejecutar"
             android:layout_weight="1"
             android:text="Ejecutar" />
     </LinearLayout>

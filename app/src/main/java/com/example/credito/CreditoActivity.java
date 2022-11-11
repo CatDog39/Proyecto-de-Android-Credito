@@ -17,7 +17,7 @@ public class CreditoActivity extends AppCompatActivity {
 
     ClsOpenHelper admin=new ClsOpenHelper(this,"Banco.bd",null,1);
 
-    String identificacion,nombre,profesion,salario,ingresos_extras,gastos,valor_prestamo;
+    String identificacion,nombre,profesion,salario,ingresos_extras,gastos,valor_prestamo,numero_credito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +57,31 @@ public class CreditoActivity extends AppCompatActivity {
     }
 
     public void Ejecutar(View view){
+        identificacion=jetidentificacion.getText().toString();
         salario=jtvsalario.getText().toString();
         ingresos_extras=jtvingresos_extras.getText().toString();
         gastos=jtvgastos.getText().toString();
 
-        //hay que hacer lo del parseint
-        //valor_prestamo= ((salario + ingresos_extras) - gastos) * 10;
+        if (identificacion.isEmpty()){
+            Toast.makeText(this, "La identificacion es requerida para la consulta", Toast.LENGTH_SHORT).show();
+            jetidentificacion.requestFocus();
+        }
+        else{
+            int ejsalario,ejingresos_extras,ejgastos;
+            float ejvalor_prestamo;
+            ejsalario=Integer.parseInt(salario);
+            ejingresos_extras=Integer.parseInt(ingresos_extras);
+            ejgastos=Integer.parseInt(gastos);
+            ejvalor_prestamo=((ejsalario + ejingresos_extras - ejgastos) * 10);
+            jtvvalor_prestamo.setText(String.valueOf(ejvalor_prestamo));
+        }
+
+        //poner ramdon
+        numero_credito=jetcodigo_credito.getText().toString();
+        int codigo;
+        codigo=Integer.parseInt(numero_credito);
+        
+
     }
 
 
