@@ -77,10 +77,25 @@ public class CreditoActivity extends AppCompatActivity {
         }
 
         //poner ramdon
+       // numero_credito=jetcodigo_credito.getText().toString();
+       // int codigo;
+       // codigo=Integer.parseInt(numero_credito);
+
+
+    }
+
+    public void Guardar(View view){
         numero_credito=jetcodigo_credito.getText().toString();
-        int codigo;
-        codigo=Integer.parseInt(numero_credito);
-        
+        identificacion=jetidentificacion.getText().toString();
+        valor_prestamo=jtvvalor_prestamo.getText().toString();
+
+        if (numero_credito.isEmpty() || identificacion.isEmpty() || valor_prestamo.isEmpty()){
+            Toast.makeText(this, "Todos los datos son necesario", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+        }
+
 
     }
 
