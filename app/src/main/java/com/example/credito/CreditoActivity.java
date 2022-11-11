@@ -2,6 +2,7 @@ package com.example.credito;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class CreditoActivity extends AppCompatActivity {
     ClsOpenHelper admin=new ClsOpenHelper(this,"Banco.bd",null,1);
 
     String identificacion,nombre,profesion,salario,ingresos_extras,gastos,valor_prestamo,numero_credito;
+    long resp;
+    byte sw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +93,16 @@ public class CreditoActivity extends AppCompatActivity {
         valor_prestamo=jtvvalor_prestamo.getText().toString();
 
         if (numero_credito.isEmpty() || identificacion.isEmpty() || valor_prestamo.isEmpty()){
-            Toast.makeText(this, "Todos los datos son necesario", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Todos los datos son necesarios", Toast.LENGTH_SHORT).show();
         }
         else{
-
+            SQLiteDatabase fila=admin.getWritableDatabase();
+            ContentValues registro=new ContentValues();
+            registro.put("cod_credito",numero_credito);
+            registro.put("identificacion",identificacion);
+            registro.put("valor_prestamo",valor_prestamo);
+            if (sw == 0)
+                resp=fila.insert("TblCredito",null,registro);
         }
 
 
