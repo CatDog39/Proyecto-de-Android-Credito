@@ -47,6 +47,7 @@
             android:layout_width="204dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
+            android:onClick="Buscar"
             android:textSize="25dp"
             android:layout_weight="1"
             android:text="Buscar" />
@@ -118,7 +119,7 @@
             android:text="Valor Prestamo" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btejecutar"
             android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:textSize="25dp"
