@@ -47,7 +47,7 @@
             android:layout_width="204dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:onClick="Buscar"
+            android:onClick="Buscar_credito"
             android:textSize="25dp"
             android:layout_weight="1"
             android:text="Buscar" />
@@ -123,7 +123,7 @@
             android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:onClick="Ejecutar"
+            android:onClick="Ejecutar_credito"
             android:layout_weight="1"
             android:text="Ejecutar" />
     </LinearLayout>
@@ -138,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
+            android:onClick="Guardar_credito"
             android:layout_weight="1"
             android:text="Guardar" />
 
@@ -146,6 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="Consultar_credito"
             android:textSize="25dp"
             android:text="Consultar" />
     </LinearLayout>
@@ -159,6 +161,7 @@
             android:id="@+id/btanular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="Anular_credito"
             android:textSize="25dp"
             android:layout_weight="1"
             android:text="Anular" />
@@ -167,6 +170,7 @@
             android:id="@+id/btregresar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="Regresar_credito"
             android:layout_weight="1"
             android:textSize="25dp"
             android:text="Regresar" />
@@ -181,10 +185,20 @@
             android:id="@+id/btcancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="Cancelar_credito"
             android:textSize="25dp"
             android:layout_weight="1"
             android:text="Cancelar" />
 
     </LinearLayout>
+    <CheckBox
+        android:id="@+id/cbactivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="  Activo" />
 
 </LinearLayout>
