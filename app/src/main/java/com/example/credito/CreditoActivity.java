@@ -173,7 +173,7 @@ public class CreditoActivity extends AppCompatActivity {
 
     public void Cancelar_credito(View view){Limpiar_campos_credito();}
 
-    public void Limpiar_campos_credito(){
+    private void Limpiar_campos_credito(){
         jetidentificacion.setText("");
         jetcodigo_credito.setText("");
         jtvgastos.setText("");
